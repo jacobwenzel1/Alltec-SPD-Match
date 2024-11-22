@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alltec SPD Matching Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <!-- Display Company Logo -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Alltec Company Logo" style="width: 200px; height: auto;">
+    
+    <h1>Alltec SPD Matching Tool</h1>
+    
+    <!-- Description Text -->
+    <p class="description">
+        Use this tool to find which Alltec Surge Protection Device is right for your application!
+    </p>
+
+    <form action="/match" method="POST">
+
+        <label for="service_voltage">Service Voltage (Voltage Configuration):</label>
+        <select id="service_voltage" name="service_voltage" required>
+            <option value="120/240">120/240</option>
+            <option value="120/208">120/208</option>
+            <option value="127/220">127/220</option>
+            <option value="220/380">220/380</option>
+            <option value="240/415">240/415</option>
+            <option value="277/480">277/480</option>
+            <option value="480">480</option>
+            <option value="347/600">347/600</option>
+            <option value="120">120</option>
+            <option value="240">240</option>
+            <option value="600">600</option>
+        </select><br><br>
+
+        <label for="voltage_config">Voltage Configuration:</label>
+        <select id="voltage_config" name="voltage_config" required>
+            <option value="Single">Single</option>
+            <option value="Split">Split</option>
+            <option value="High Leg">High Leg</option>
+            <option value="Delta">Delta</option>
+            <option value="Wye">Wye</option>
+        </select><br><br>
+
+        <label for="ka_rating">Current Rating kA:</label>
+        <select id="ka_rating" name="ka_rating" required>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+            <option value="160">160</option>
+            <option value="200">200</option>
+            <option value="240">240</option>
+            <option value="300">300</option>
+            
+            
+        </select><br><br>
+
+        <label for="mcov">MCOV (Vac):</label>
+        <select id="mcov" name="mcov">
+            <option value="150">150</option>
+            <option value="150/320">150/320</option>
+            <option value="320">320</option>
+            <option value="420">420</option>
+            <option value="550">550</option>
+            <option value="600">600</option>
+            <option value="690">690</option>
+            
+        </select><br><br>
+
+        
+
+        <input type="submit" value="Find Alltec SPD">
+    </form>
+</body>
+</html>

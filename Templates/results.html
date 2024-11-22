@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching SPDs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <!-- Display Company Logo -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo" style="width: 200px; height: auto;">
+    
+    <h1>Matching SPDs</h1>
+    
+    {% if matched_spd is none %}
+        <p class="description">No matches found. Please try a different input.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>kA Rating</th>
+                    <th>Service Voltage</th>
+                    <th>MCOV (Vac)</th>
+                    <th>Voltage Config</th>
+                    <th>Enclosure</th>
+                    <th>Monitoring</th>
+                    <th>Part Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in matched_spd.iterrows() %}
+                    <tr>
+                        <td>{{ row['Model'] }}</td>
+                        <td>{{ row['kA Raiting'] }}</td>
+                        <td>{{ row['Service Voltage (V)'] }}</td>
+                        <td>{{ row['MCOV (Vac)'] }}</td>
+                        <td>{{ row['Voltage Config'] }}</td>
+                        <td>{{ row['Enclosure'] }}</td>
+                        <td>{{ row['Monitoring'] }}</td>
+                        <td>{{ row['Part Number'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <br>
+    <a href="/" class="button-general">Back</a>
+</body>
+</html>
