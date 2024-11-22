@@ -27,6 +27,7 @@
                     <th>Enclosure</th>
                     <th>Monitoring</th>
                     <th>Part Number</th>
+                    <th>Product Link</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                         <td>{{ row['Enclosure'] }}</td>
                         <td>{{ row['Monitoring'] }}</td>
                         <td>{{ row['Part Number'] }}</td>
+                        <td><a href="{{ row['URL'] }}" class="product-link-button" target="_blank">View Product</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
