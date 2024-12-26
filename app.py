@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = '123456789'
 
 # Load SPD data from the CSV file
-spd_data = pd.read_csv('SPD_CSV_DATA.csv')
+spd_data = pd.read_csv('SPD_CSV_DATA1.csv')
 
 # Clean column names by stripping leading/trailing spaces and special characters
 spd_data.columns = spd_data.columns.str.strip()
